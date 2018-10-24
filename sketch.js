@@ -1,11 +1,25 @@
-function preload(){
-  // put preload code here
+var mic;
+
+function preload() {
+
 }
 
 function setup() {
-  // put setup code here
+  createCanvas(windowWidth, windowHeight);
+  background(0);
+  mic = new p5.AudioIn();
+  mic.start();
 }
 
 function draw() {
-  // put drawing code here
+  var myText = 'Speak for yourself!';
+  fill(162, 11, 11);
+  textSize(72);
+  textFont('Chivo');
+  textAlign(CENTER);
+  text(myText, windowWidth / 2, windowHeight / 2);
+
+  var vol = mic.getLevel();
+  rect(windowWidth/2-100, windowHeight/2+100, 200, vol * 300);
+
 }
